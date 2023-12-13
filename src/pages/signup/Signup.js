@@ -1,15 +1,17 @@
 
 import './signup.css'
 import { useState } from 'react'
+import { useSignup } from '../../hooks/useSignup'
 
 
 export default function Signup() {
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
-  const [displayname,setDisplayName] = useState('')
+  const [displayName,setDisplayName] = useState('')
   const [thumbnail,setThumbnail] = useState(null)
   const [thumbnailError, setThumbnailError] = useState(null)
 
+  const {error,isPending,signup}=useSignup();
   
   const handleChange = (e) => {
     setThumbnail(null)
@@ -31,8 +33,8 @@ export default function Signup() {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(email!=='' && password !=='' && displayname !=='' && thumbnail!==null){
-      console.log(email, password, displayname, thumbnail)
+    if(email!=='' && password !=='' && displayName !=='' && thumbnail!==null){
+      signup(email, password, displayName, thumbnail)
     }
   
   }
@@ -55,7 +57,7 @@ export default function Signup() {
       <label>
         <span>Kullanıcı Adı: </span>
         <input type='text' required 
-        value={displayname} 
+        value={displayName} 
         onChange={(e)=> setDisplayName(e.target.value)}/>
       </label>
       <label>
@@ -63,7 +65,9 @@ export default function Signup() {
         <input type='file' required onChange={handleChange} />
         {thumbnailError && <div className="error">{thumbnailError}</div>}
       </label>
-      <button className='btn'>Üye ol</button>
+      {!isPending && <button className='btn'>Üye ol</button>}
+      {isPending && <button className='loading-btn'>Yükleniyor</button>}
+      {error && <div className='error'>{error}</div>}
     </form>
   )
 }
