@@ -2,9 +2,12 @@
 import { Link } from "react-router-dom";
 import './navbar.css'
 import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
+
 export default function Navbar() {
 
-    const {logout} =useLogout()
+    const {logout,isPending} =useLogout()
+    const {user}=useAuthContext()
 
     return(
           <div className="navbar">
@@ -15,15 +18,23 @@ export default function Navbar() {
                     <h1>U</h1>
                     <span>Bilgi İşlem Destek Koordinatörlüğü</span>
                 </li>
+
+                {!user &&(
+                    <>
                 <li>
                     <Link to="/login"> Giriş </Link>
                 </li>
                 <li>
                     <Link to="/signup"> Üye ol </Link>
                 </li>
-                <li>
-                    <button className="logout-btn" onClick={logout}> Çıkış </button>
-                </li>
+                    </>
+                )}
+                    {user &&(
+                  <li>
+                    {!isPending && <button className="logout-btn" onClick={logout}> Çıkış </button>}
+                    {isPending && <button className="logout-btn" onClick={logout}> Çıkış Yapılıyor </button>}
+                    </li>
+                    )}
             </ul>
           </div>  
     )

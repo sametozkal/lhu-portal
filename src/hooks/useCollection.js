@@ -7,11 +7,13 @@ export const useCollection=(koleksiyon,_q,_ob)=>{
 
     const [documents,setDocuments]=useState(null)
     const [error,setError]=useState(null)
+    const [isPending,setIspending] = useState(false)
 
     const q=useRef(_q).current
     const ob=useRef(_ob).current
 
     useEffect(()=>{
+        setIspending(true)
         let ref=collection(db,koleksiyon)
 
         if(q){
@@ -32,14 +34,16 @@ export const useCollection=(koleksiyon,_q,_ob)=>{
 
             setDocuments(dizi)
             setError(null)
+            setIspending(false)
         },(error)=>{
             console.log(error.message);
             setError('Verilere Erişilemedi')
+            setIspending(false)
         })
 
         return ()=>unsub()
     },[koleksiyon,q,ob])
 
 
-    return {documents,error}
+    return {documents,error,isPending}
 }
