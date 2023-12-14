@@ -6,12 +6,12 @@ import {getStorage} from 'firebase/storage'
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBsNkH27S73p2x5cDT9IgJXsPn52zWKRRY",
-  authDomain: "bilgiislemdestek-ec846.firebaseapp.com",
-  projectId: "bilgiislemdestek-ec846",
-  storageBucket: "bilgiislemdestek-ec846.appspot.com",
-  messagingSenderId: "363649510325",
-  appId: "1:363649510325:web:f4ea7c89626f3ab29807fc"
+  apiKey: "AIzaSyDGKYtOt2-F2Zoe-LKPdJ6jCt7NC_tqLFw",
+  authDomain: "lhuportaldb.firebaseapp.com",
+  projectId: "lhuportaldb",
+  storageBucket: "lhuportaldb.appspot.com",
+  messagingSenderId: "633825545622",
+  appId: "1:633825545622:web:60a306f51928951c3661b7"
 };
 
   const app = initializeApp(firebaseConfig);

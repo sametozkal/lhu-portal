@@ -1,7 +1,8 @@
 import { useState,useEffect } from "react"
-import {auth, storage} from '../firebase/config'
+import {auth, storage,db} from '../firebase/config'
 import {createUserWithEmailAndPassword,updateProfile } from 'firebase/auth'
 import {useAuthContext} from './useAuthContext'
+import {setDoc,doc} from 'firebase/firestore'
 import { ref,uploadBytes,getDownloadURL } from "firebase/storage"
 export const useSignup=()=>{
 
@@ -31,6 +32,13 @@ export const useSignup=()=>{
             updateProfile(response.user,{
                 displayName:userName,
                 photoURL:imgUrl
+            })
+
+            const docRef =doc(db,'kullanicilar', response.user.uid)
+            await setDoc(docRef,{
+                online:true,
+                kullanicilar:userName,
+                fotoUrl:imgUrl
             })
 
             dispatch({type:'LOGIN',payload:response.user})
