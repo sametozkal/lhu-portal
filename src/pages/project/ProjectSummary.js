@@ -27,7 +27,7 @@ export default function ProjectSummary({ proje }) {
         <p className="details">
           {proje.aciklama}
         </p>
-        <h4>Proje Kullanıcıları:</h4>
+        <h4>İlgililer:</h4>
         <div className="project-users">
           {proje.projeKullaniciListesi.map(k => (
             <div key={k.id}>

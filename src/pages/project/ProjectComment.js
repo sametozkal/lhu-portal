@@ -34,7 +34,7 @@ export default function ProjectComments({proje}) {
   
     return (
       <div className="project-comments">
-        <h4>Proje Yorumları</h4>
+        <h4>Yorumlar:</h4>
 
 	<ul>
 	{proje.yorumlar.length > 0 && proje.yorumlar.map(y => (
