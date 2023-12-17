@@ -22,7 +22,7 @@ export default function ProjectSummary({ proje }) {
         <p>Bu projeyi oluşturan : {proje.olusturan.kullanicilar}</p>
 
         <p className="date">
-          Proje Bitiş Tarihi: {proje.bitisTarihi.toDate().toLocaleString('tr-TR',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+           Tarihi: {proje.bitisTarihi.toDate().toLocaleString('tr-TR',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
         </p>
         <p className="details">
           {proje.aciklama}

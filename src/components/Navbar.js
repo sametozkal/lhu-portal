@@ -5,7 +5,12 @@ import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 export default function Navbar() {
+        /* signup 
+                <li>
+                    <Link to="/signup"> Üye ol </Link>
+                </li>  
 
+        */
     const {logout,isPending} =useLogout()
     const {user}=useAuthContext()
 
@@ -17,16 +22,15 @@ export default function Navbar() {
                     <h1>H</h1>
                     <h1>U</h1>
                     <span>Bilgi İşlem Destek Koordinatörlüğü</span>
+                
                 </li>
-
+              
                 {!user &&(
                     <>
                 <li>
                     <Link to="/login"> Giriş </Link>
                 </li>
-                <li>
-                    <Link to="/signup"> Üye ol </Link>
-                </li>
+                
                     </>
                 )}
                     {user &&(

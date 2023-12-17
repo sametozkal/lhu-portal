@@ -85,16 +85,16 @@ export default function Create() {
 
   return (
     <div className='create-form'>
-      <h2 className='page-title'>Yeni Proje Oluşturun</h2>
+      <h2 className='page-title'>Yeni Gönderi Oluşturun</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>Proje İsmi:</span>
+          <span>Başlık:</span>
           <input required type="text" onChange={(e)=>setName(e.target.value)} value={name}
           />
         </label>
 
         <label>
-          <span>Proje Açıklaması:</span>
+          <span>Açıklama:</span>
           <textarea required type="text" onChange={(e)=>setDetails(e.target.value)} value={details}
           ></textarea>
         </label>
@@ -105,18 +105,18 @@ export default function Create() {
         </label>
 
         <label>
-          <span>Proje Kullanıcılar:</span>
+          <span>İlgililer:</span>
           <Select placeholder="Proje için Kullanıcı Seçiniz" options={users} 
            onChange={(option)=>setProjectUser(option)} isMulti/>
         </label>
 
         <label>
-          <span>Bitiş Tarihi:</span>
+          <span>Tarihi:</span>
           <input required type="date" onChange={(e)=>setDate(e.target.value)} value={date}
           />
         </label>
 
-        <button className='btn'>Proje Ekle</button>
+        <button className='btn'>Paylaş</button>
         {formError && <div className='error'>{formError}</div>}
         
       </form>

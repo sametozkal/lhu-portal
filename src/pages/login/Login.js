@@ -17,6 +17,7 @@ export default function Login() {
   return (
    <form className='auth-form' onSubmit={handleSubmit}>
     <h2>Giriş Sayfası</h2>
+    
     <label>
       <span>Email: </span>
       <input type='email' required 
@@ -27,10 +28,15 @@ export default function Login() {
       <input type='password' required 
        value={password} 
        onChange={(e)=>setPassword(e.target.value)}/>
+       
     </label>
+    
     {!isPending && <button type='submit' className='btn'> Giriş Yap</button>}
     {isPending && <button className='loading-btn'> Yükleniyor</button>}
-    {error && <div className='error'>{error}</div>}
+    {error && <div className='error'>{error}</div>} 
+    <br /> <hr />
+    <span>Designed by <i>Samet Özkal</i> </span>
+    <hr />
    </form>
   )
 }

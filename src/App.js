@@ -14,7 +14,7 @@ import OnlineUsers from './components/OnlineUsers';
 function App() {
 
   const {user,authIsReady}=useAuthContext();
-
+  // 
   return (
     <div className="App">
       {authIsReady && (
@@ -38,7 +38,7 @@ function App() {
 
               <Route path='/signup' 
               element={!user ? <Signup /> : <Navigate to="/" />}  />
-
+             
               </Routes>
             </div>
             {user && <OnlineUsers /> }

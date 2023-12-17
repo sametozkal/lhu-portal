@@ -71,3 +71,7 @@
   color: var(--text-color);
   font-size: 0.9em;
 }
+.comment-content {
+	color: var(--heading-color);
+	font-size: 0.9em;
+}

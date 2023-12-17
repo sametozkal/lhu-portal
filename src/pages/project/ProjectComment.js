@@ -3,6 +3,8 @@ import {Timestamp} from 'firebase/firestore'
 import {useAuthContext} from '../../hooks/useAuthContext'
 import { useFirestore } from "../../hooks/useFirestore";
 import Avatar from "../../components/Avatar";
+import moment from "moment";
+import 'moment/locale/tr'
 
 export default function ProjectComments({proje}) {
     const { user } = useAuthContext()
@@ -42,8 +44,8 @@ export default function ProjectComments({proje}) {
 		  <p>{y.kullanicilar}</p>
 		</div>
 		<div className="comment-date">
-		  <p>Tarih</p>
-		</div>
+      <p>{moment(Date(y.tarih)).fromNow()}</p>
+    </div>
 		<div className="comment-content">
 		  <p>{y.yorumText}</p>
 		</div>
