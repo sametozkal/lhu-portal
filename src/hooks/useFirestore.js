@@ -1,4 +1,4 @@
-import { addDoc, collection,deleteDoc,doc,serverTimestamp } from "firebase/firestore";
+import { addDoc, collection,deleteDoc,doc,serverTimestamp,updateDoc } from "firebase/firestore";
 import { useReducer,useState } from "react";
 import {db} from '../firebase/config'
 
@@ -20,6 +20,8 @@ const firestoreReducer=(state,action)=>{
             return {isPending:false,document:action.payload,success:true,error:null}
         case 'DELETED_DOCUMENT':
                 return {isPending:false,document:null,success:true,error:null}
+        case 'UPDATED_DOCUMENT':
+            return {isPending:false,document:action.payload,success:true,error:null}        
         case 'ERROR':
             return {isPending:false,document:null,success:false,error:action.payload}
        
@@ -64,8 +66,27 @@ export const useFirestore=(koleksiyon)=>{
         }
 
     }
+    const dokumanGuncelle=async (id,guncelVeri)=>{
 
-    return {dokumanEkle,dokumanSil,response}
+        dispatch({type:'IS_PENDING'})
+    
+        try {
+            
+            const docRef=await doc(db,koleksiyon,id);
+            await updateDoc(docRef,guncelVeri)
+            
+            dispatch({type:'UPDATED_DOCUMENT',payload:guncelVeri})
+            return guncelVeri
+            
+    
+        } catch (error) {
+            dispatch({type:'ERROR',payload:error.message})
+            return null
+        }
+    
+    }
+
+    return {dokumanEkle,dokumanSil,response,dokumanGuncelle}
 
 
 }
