@@ -35,7 +35,7 @@ export default function Login() {
     {isPending && <button className='loading-btn'> Yükleniyor</button>}
     {error && <div className='error'>{error}</div>} 
     <br /> <hr />
-    <span>Designed by <i>Samet Özkal</i> </span>
+    <span>Designed by <i> ∞𝒪𝓏𝓀𝒶𝓁 ∞ </i> </span>
     <hr />
    </form>
   )

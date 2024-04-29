@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const filterList = ['hepsi','benim', 'sinif', 'tedarik', 'rapor']
+const filterList = ['hepsi','benim', 'gidecek', 'gelecek', 'rapor']
 
 export default function ProjectFilter({currentFilter,changeFilter}) {
   

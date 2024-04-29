@@ -28,8 +28,8 @@ export default function Dashboard() {
           }
         })
         return kendiProjelerim
-      case 'sinif':
-      case 'tedarik':
+      case 'gidecek':
+      case 'gelecek':
       case 'rapor':
         return doc.kategori==currentFilter
       default:

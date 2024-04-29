@@ -22,8 +22,8 @@ export default function Create() {
   const navigate=useNavigate();
 
   const categories=[
-    {value:'sinif',label:'Sınıflar (Tahta,Projeksiyon)'},
-    {value:'tedarik',label:'Malzeme Tedarik'},
+    {value:'gidecek',label:'Gidecek (Kiosk-Terminal-PC-Telefon)'},
+    {value:'gelecek',label:'Gelecek (Kiosk-Terminal-PC-Telefon)'},
     {value:'rapor',label:'Rapor'},
   ]
 
