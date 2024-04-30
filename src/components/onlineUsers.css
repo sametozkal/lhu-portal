@@ -3,7 +3,7 @@
     min-width: 250px;
     padding: 30px;
     box-sizing: border-box;
-    background: #cde5d7;
+   /* background: #cde5d7; */
     color: var(--heading-color);
   }
   .user-list h2 {
